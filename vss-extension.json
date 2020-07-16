@@ -1,0 +1,72 @@
+{
+    "manifestVersion": 1,
+    "id": "vsteam-azuredevops-extension",
+    "publisher": "MethodsAndPractices",
+    "version": "0.1.0",
+    "name": "VSTeam",
+    "description": "Extension to help you integrate VSTeam with Azure DevOps",
+    "public": false,
+    "categories": ["Azure Pipelines"],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "tags": [
+        "VSTeam", "PowerShell",
+        "API", "Pipeline",
+        "Methods and Practices"
+    ],
+    "icons": {
+        "default": "images/Icon128.png",
+        "large": "images/Icon512.png"
+    },
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
+    "links": {
+        "getstarted": {
+            "uri": "https://github.com/MethodsAndPractices/vsteam-azuredevops-ext"
+        },
+        "learn": {
+            "uri": "https://docs.microsoft.com/en-us/powershell"
+        },
+        "issues": {
+            "uri": "https://github.com/MethodsAndPractices/vsteam-azuredevops-ext/issues"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/MethodsAndPractices/vsteam-azuredevops-ext.git"
+    },
+    "branding": {
+        "color": "rgb(240,240,240)",
+        "theme": "light"
+    },
+    "scopes": [
+        "vso.build_execute"
+    ],
+    "contributions": [
+        {
+            "id": "vsteam-azuredevops",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "vsteam-azuredevops"
+            }
+        }
+    ],
+    "files": [
+        {
+            "path": "vsteam-azuredevops"
+        },
+        {
+            "path": "images",
+            "addressable": true
+        }
+    ]
+}
