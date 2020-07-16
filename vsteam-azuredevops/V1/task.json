@@ -18,6 +18,9 @@
     },
     "preview": false,
     "minimumAgentVersion": "2.115.0",
+    "demands": [
+        "npm"
+    ],
     "groups": [
       {
         "name": "advanced",
