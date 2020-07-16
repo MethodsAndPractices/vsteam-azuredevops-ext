@@ -1,0 +1,13 @@
+{
+    "name": "vsteam.powershell",
+    "description": "Task for running PowerShell with the VSTeam Module",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/MethodsAndPractices/vsteam-azuredevops-ext.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+      "azure-pipelines-task-lib": "^2.9.6",
+      "azure-pipelines-tool-lib": "^0.12.0"
+    }
+  }
