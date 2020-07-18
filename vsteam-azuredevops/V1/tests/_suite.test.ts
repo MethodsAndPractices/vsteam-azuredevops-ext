@@ -12,7 +12,7 @@ describe('Sample task tests', function () {
 
     });
 
-    it('should succeed with simple inputs', function(done: MochaDone) {
+    it('should succeed with simple inputs', function(done: Mocha.Done) {
         this.timeout(1000);
 
         let tp = path.join(__dirname, 'success.js');
@@ -28,13 +28,13 @@ describe('Sample task tests', function () {
         done();
     });
 
-    it('it should fail if tool returns 1', function(done: MochaDone) {
+    it('it should fail if tool returns 1', function(done: Mocha.Done) {
         this.timeout(1000);
 
         let tp = path.join(__dirname, 'failure.js');
         let tr: ttm.MockTestRunner = new ttm.MockTestRunner(tp);
 
-        tr.run();
+       tr.run();
         console.log(tr.succeeded);
         assert.equal(tr.succeeded, false, 'should have failed');
         assert.equal(tr.warningIssues, 0, "should have no warnings");

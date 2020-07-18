@@ -1,4 +1,4 @@
 node_modules
 *vsix
 .taskkey
-vsteam-azuredevops/V1/*.js
+vsteam-azuredevops/V1/**/*.js
