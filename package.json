@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Azure DevOps pipeline extension to run VSTeam PowerShell scripts natively and cross-platform",
   "scripts": {
-    "test": " tsc && mocha 'vsteam-azuredevops/V1/tests/_suite.js'"
+    "test": " tsc && mocha 'vsteam-azuredevops/V1/tests/_suite.test.js'"
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,9 @@
   },
   "homepage": "https://github.com/MethodsAndPractices/vsteam-azuredevops-ext#readme",
   "dependencies": {
-    "azure-pipelines-task-lib": "^2.9.6"
+
   },
   "devDependencies": {
-    "mocha": "^8.0.1",
     "@types/mocha": "^8.0.0",
     "@types/node": "^14.0.23",
     "@types/q": "^1.5.4",
