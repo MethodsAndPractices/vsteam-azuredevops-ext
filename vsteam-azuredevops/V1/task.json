@@ -31,14 +31,6 @@
     "instanceNameFormat": "Run VSTeam PowerShell $(samplestring)",
     "inputs": [
         {
-            "name": "samplestring",
-            "type": "string",
-            "label": "Sample String",
-            "defaultValue": "",
-            "required": true,
-            "helpMarkDown": "A sample string"
-        },
-        {
             "name": "ConnectedServiceName",
             "aliases": [
                 "externaltfsConntection"

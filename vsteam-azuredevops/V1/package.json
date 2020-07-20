@@ -9,5 +9,6 @@
   "dependencies": {
     "azure-pipelines-task-lib": "^2.9.6",
     "azure-pipelines-tool-lib": "^0.12.0"
-  }
+  },
+  "devDependencies": {}
 }
