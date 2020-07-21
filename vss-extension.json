@@ -62,7 +62,7 @@
     ],
     "files": [
         {
-            "path": "vsteam-azuredevops"
+            "path": "tasks/vsteam-azuredevops"
         },
         {
             "path": "images",
