@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "Azure DevOps pipeline extension to run VSTeam PowerShell scripts natively and cross-platform",
   "scripts": {
-    "test": " tsc && mocha vsteam-azuredevops/V1/tests/*.test.js",
-    "testCovCobertura": " tsc && nyc --reporter=cobertura --reporter=text mocha 'vsteam-azuredevops/V1/tests/_suite.test.js'",
-    "testCovHtml": " tsc && nyc --reporter=html --reporter=text mocha 'vsteam-azuredevops/V1/tests/_suite.test.js'"
+    "build": "tsc",
+    "test": "npm run build && mocha vsteam-azuredevops/V1/tests/*.test.js",
+    "testCovCobertura": "npm run build && nyc --reporter=cobertura --reporter=text mocha 'vsteam-azuredevops/V1/tests/_suite.test.js'",
+    "testCovHtml": "npm run build && nyc --reporter=html --reporter=text mocha 'vsteam-azuredevops/V1/tests/_suite.test.js'"
   },
   "repository": {
     "type": "git",
