@@ -32,7 +32,7 @@ describe('Sample task tests', function () {
     });
 
     it('should succeed with simple inputs', function (done: Mocha.Done) {
-        this.timeout(1000);
+        this.timeout(3000);
 
         let tp = path.join(__dirname, 'successParams.js');
         let tr: ttm.MockTestRunner = new ttm.MockTestRunner(tp);
