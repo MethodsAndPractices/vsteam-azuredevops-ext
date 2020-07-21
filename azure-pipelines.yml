@@ -42,15 +42,18 @@ steps:
     failIfCoverageEmpty: true
 
 - task: TfxInstaller@3
+  displayName: Install tfxc-cli
   inputs:
     version: 'v0.7.x'
 
 - task: PackageAzureDevOpsExtension@3
+  displayName: Package extension
   inputs:
     rootFolder: '$(System.DefaultWorkingDirectory)'
     updateTasksVersion: false
 
 - task: CopyFiles@2
+  displayName: Copy vsix to publishing folder
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: '**/*.vsix'
