@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js 10.X'
 
 - script: |
-    npm run initdev && npm run build:clean
+    npm install && npm run initdev && npm run build
   displayName: 'build solution'
 
 - script: |
