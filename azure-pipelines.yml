@@ -19,6 +19,13 @@ steps:
     npm install
   displayName: 'npm install extension packages'
 
+- task: CmdLine@2
+  displayName: 'npm install extension task VSTeam PowerShell'
+  inputs:
+    script: |
+      npm install
+    workingDirectory: '$(System.DefaultWorkingDirectory)/vsteam-azuredevops/V1/'
+
 - script: |
     npm run build
   displayName: 'transpile typescript'
