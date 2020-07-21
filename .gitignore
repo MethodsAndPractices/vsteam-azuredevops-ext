@@ -1,8 +1,10 @@
 .nyc_output
 coverage
 node_modules
+dist
+
 *vsix
 .taskkey
 
-vsteam-azuredevops/**/*.js
+tasks/**/*.js
 *js.map
