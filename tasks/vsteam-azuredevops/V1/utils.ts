@@ -7,11 +7,11 @@ export class AzureDevOpsCred {
 
     constructor(hostUrl: string, patToken: string) {
         if (typeof hostUrl.valueOf() !== 'string' || !hostUrl) {
-            throw new Error(tl.loc("HostUrlCannotBeEmpty"));
+            throw new Error("HostUrlCannotBeEmpty");
         }
 
         if (typeof patToken.valueOf() !== 'string' || !patToken) {
-            throw new Error(tl.loc("PatTokenCannotBeEmpty"));
+            throw new Error("PatTokenCannotBeEmpty");
         }
 
         this.hostUrl = hostUrl;
@@ -40,11 +40,11 @@ export class VsTeamTaskParameters {
     public azureDevOpsCred : AzureDevOpsCred
 
 
-    private getAzDPatToken(azDServiceConnection: string): AzureDevOpsCred {
-        var endpointAuth = tl.getEndpointAuthorization(azDServiceConnection, true);
+    public getAzDPatToken(azDServiceConnection: string): AzureDevOpsCred {
+        let endpointAuth = tl.getEndpointAuthorization(azDServiceConnection, true);
         if (endpointAuth.scheme === 'Token') {
-            var hostUrl = tl.getEndpointUrl(azDServiceConnection, true);
-            var patToken: string = endpointAuth.parameters["apitoken"];
+            let hostUrl = tl.getEndpointUrl(azDServiceConnection, true);
+            let patToken: string = endpointAuth.parameters["apitoken"];
             if (typeof hostUrl.valueOf() !== 'string' || !hostUrl) {
                 throw new Error("UrlCannotBeEmpty");
             }
@@ -52,19 +52,17 @@ export class VsTeamTaskParameters {
             if (typeof patToken.valueOf() !== 'string' || !patToken) {
                 throw new Error("PatTokenCannotBeEmpty");
             }
-            var credentials = new AzureDevOpsCred(hostUrl, patToken);
+            let credentials = new AzureDevOpsCred(hostUrl, patToken);
             return credentials;
         }
         else {
-            var msg = "OnlyTokenAuthAllowed";
-            console.log(msg);
+            let msg = "OnlyTokenAuthAllowed";
             throw (msg);
         }
     }
 
-    public async getTaskParameters(): Promise<VsTeamTaskParameters> {
+    public getTaskParameters(): VsTeamTaskParameters {
         try {
-
             let errorActionPreference: string = tl.getInput('errorActionPreference', false) || 'Stop';
             switch (errorActionPreference.toUpperCase()) {
                 case 'STOP':
@@ -76,7 +74,7 @@ export class VsTeamTaskParameters {
             }
 
             this.errorActionPreference = errorActionPreference.toUpperCase();
-            this.scriptType = tl.getInput('FileOrInline', /*required*/true);
+            this.scriptType = tl.getInput('FileOrInline', /*required*/false);
             this.scriptPath = tl.getPathInput('PowerShellFilePath', false);
             this.scriptInline = tl.getInput('PowerShellInline', false);
             this.scriptArguments = tl.getInput('PsArguments', false);
@@ -88,7 +86,6 @@ export class VsTeamTaskParameters {
             return this
 
         } catch (error) {
-            console.log(error)
             throw new Error("Error in Argumentconstruction:" + error.message);
         }
     }

@@ -18,8 +18,6 @@ import { mockUpClones } from './mockupHelper';
 const clones = new mockUpClones();
 
 tmr.registerMock('azure-pipelines-task-lib/mock-task', clones.getTaskLibClone());
-tmr.registerMock('fs',clones.getFsClone());
-tmr.registerMock('uuid/v4', clones.getUuidv4Clone());
 
 let a: ma.TaskLibAnswers = <ma.TaskLibAnswers>{
     "checkPath": {
@@ -52,5 +50,8 @@ let a: ma.TaskLibAnswers = <ma.TaskLibAnswers>{
     }
 };
 tmr.setAnswers(a);
+
+tmr.registerMock('fs',clones.getFsClone());
+tmr.registerMock('uuid/v4', clones.getUuidv4Clone());
 
 tmr.run();

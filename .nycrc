@@ -2,8 +2,9 @@
   "all": true,
   "check-coverage": false,
   "exclude": [
-    "vsteam-azuredevops/**/tests/**/*",
-    "coverage/**/*"
+    "tasks/vsteam-azuredevops/**/tests/**/*",
+    "coverage/**/*",
+    ".eslintrc.js"
   ],
   "lines": 80
 }

@@ -17,10 +17,6 @@ describe('Sample task tests', function () {
     }
 
     before(function () {
-        process.env["SYSTEM_DEFAULTWORKINGDIRECTORY"] = "C:\\My\Default\\Working\\Dir";
-        process.env["SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"] = "https://abc.visualstudio.com/";
-        process.env['AGENT_VERSION'] = '2.115.0';
-
         process.env['ENDPOINT_URL_ENDPOINT1'] = "https://endpoint1.visualstudio.com/path";
         process.env['ENDPOINT_AUTH_ENDPOINT1'] = "{\"parameters\":{\"apitoken\":\"mytoken123\"},\"scheme\":\"Token\"}";
         process.env["ENDPOINT_AUTH_SCHEME_ENDPOINT1"] = "Token";
@@ -31,7 +27,7 @@ describe('Sample task tests', function () {
 
     });
 
-    it('should succeed with simple inputs', function (done: Mocha.Done) {
+    it('should succeed with inline powershell input', function (done: Mocha.Done) {
         this.timeout(3000);
 
         let tp = path.join(__dirname, 'successParams.js');
@@ -43,7 +39,7 @@ describe('Sample task tests', function () {
             assert.equal(tr.succeeded, true, 'should have succeeded');
             assert.equal(tr.warningIssues.length, 0, "should have no warnings");
             assert.equal(tr.errorIssues.length, 0, "should have no errors");
-            //assert.equal(tr.stdout.indexOf('Hello human') >= 0, true, "should display Hello human");
+            assert.equal(tr.stdout.indexOf('my script output') >= 0, true, "should display 'my script output'");
         }, tr, done)
     });
 
