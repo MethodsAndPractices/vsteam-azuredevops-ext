@@ -18,10 +18,10 @@ stages:
     displayName: 'Build'
     strategy:
       matrix:
-        macOS:
+        Windows:
           OS: 'Windows'
           vmImageName: 'windows-latest'
-        Linux:
+        macOS:
           OS: 'macOS'
           vmImageName: 'macOS-latest'
       maxParallel: 2
