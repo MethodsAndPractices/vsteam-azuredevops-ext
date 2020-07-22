@@ -40,7 +40,7 @@ stages:
     steps:
     - template: tools/ci/build-extension.yml
       parameters:
-        UnitTests: true
+        UnitTests: false
         CodeCoverage: true
 
     - task: TfxInstaller@3
