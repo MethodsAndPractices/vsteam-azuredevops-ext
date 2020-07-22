@@ -1,0 +1,25 @@
+parameters:
+  CodeCoverage: false
+  UnitTests: false
+  
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js 10.X'
+
+- script: |
+    npm run initdev && npm run build
+  displayName: 'build solution'
+
+- ${{ if eq(parameters.CodeCoverage, true) }}:
+  - script: |
+      npm run test:coverage:cobertura
+    displayName: 'run unit tests and code coverage'
+
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: 'Cobertura'
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage/cobertura-coverage.xml'
+      pathToSources: '$(System.DefaultWorkingDirectory)'
+      failIfCoverageEmpty: true
