@@ -11,9 +11,9 @@ pool:
 
 steps:
 - template: tols/ci/build-extension.yml
-    parameters:
-      UnitTests: true
-      CodeCoverage: true
+  parameters:
+    UnitTests: true
+    CodeCoverage: true
 
 - task: TfxInstaller@3
   displayName: Install tfxc-cli
