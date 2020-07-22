@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- template: tols/ci/build-extension.yml
+- template: tools/ci/build-extension.yml
   parameters:
     UnitTests: true
     CodeCoverage: true
