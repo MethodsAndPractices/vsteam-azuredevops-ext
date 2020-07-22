@@ -12,7 +12,7 @@ pool:
 stages:
 - stage: Build
   displayName: 'Build Stage'
-  
+
   jobs:
   - job: macOs_Windows_Pase
     displayName: 'Build'
@@ -32,7 +32,8 @@ stages:
       parameters:
         UnitTests: true
         CodeCoverage: false
-        
+        OS: '$(OS)'
+
   - job: Linux_Phase
     displayName: 'Build Linux'
     pool:
@@ -42,6 +43,7 @@ stages:
       parameters:
         UnitTests: false
         CodeCoverage: true
+        OS: 'Linux'
 
     - task: TfxInstaller@3
       displayName: Install tfxc-cli

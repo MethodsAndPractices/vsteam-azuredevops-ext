@@ -8,4 +8,4 @@ dist
 
 tasks/**/*.js
 *js.map
-results.xunit.xml
+*.results.xunit.xml
