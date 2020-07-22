@@ -12,6 +12,11 @@ steps:
     npm run initdev && npm run build
   displayName: 'build solution'
 
+- ${{ if eq(parameters.UnitTests, true) }}:
+  - script: |
+      npm run test
+    displayName: 'run unit tests'
+
 - ${{ if eq(parameters.CodeCoverage, true) }}:
   - script: |
       npm run test:coverage:cobertura
