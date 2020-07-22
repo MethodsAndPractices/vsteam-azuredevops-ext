@@ -32,7 +32,7 @@
     "build": "npm run build:tasks",
     "build:clean": "npm run clean && npm run initdev && npm run build",
     "build:tasks": "npm run compile:tasks",
-    "test": "npm run build && glob-exec --foreach \"tasks/**/tests/*.test.js\" -- \"mocha {{file.dir}}\"",
+    "test": "npm run build && glob-exec --foreach \"tasks/**/tests/*.test.js\" -- \"mocha {{file}}\"",
     "test:coverage:cobertura": "npm run build && nyc --reporter=cobertura --reporter=text mocha 'tasks/vsteam-azuredevops/V1/tests/_suite.test.js'",
     "test:coverage:html": "npm run build && nyc --reporter=html --reporter=text mocha 'tasks/vsteam-azuredevops/V1/tests/_suite.test.js'",
     "package": "npm run build:clean && npm run package:tasks",
