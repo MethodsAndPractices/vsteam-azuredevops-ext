@@ -15,7 +15,7 @@ stages:
   
   jobs:
   - job: macOs_Windows_Pase
-    displayName: 'Build Windows and macOs'
+    displayName: 'Build'
     strategy:
       matrix:
         macOS:
