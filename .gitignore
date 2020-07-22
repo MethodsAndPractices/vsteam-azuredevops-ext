@@ -9,3 +9,4 @@ dist
 tasks/**/*.js
 *js.map
 *.results.xunit.xml
+*.test.results.junit.xml
