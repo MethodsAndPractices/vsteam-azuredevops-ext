@@ -9,37 +9,64 @@ resources:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- template: tools/ci/build-extension.yml
-  parameters:
-    UnitTests: true
-    CodeCoverage: true
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  
+  jobs:
+  - job: macOs_Windows_Pase
+    displayName: 'Build Windows and macOs'
+    strategy:
+      matrix:
+        macOS:
+          OS: 'Windows'
+          vmImageName: 'windows-latest'
+        Linux:
+          OS: 'Linux'
+          vmImageName: 'macOS-latest'
+      maxParallel: 2
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - template: tools/ci/build-extension.yml
+      parameters:
+        UnitTests: true
+        CodeCoverage: false
+        
+  - job: Linux_Phase
+    displayName: 'Build Linux'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - template: tools/ci/build-extension.yml
+      parameters:
+        UnitTests: true
+        CodeCoverage: true
 
-- task: TfxInstaller@3
-  displayName: Install tfxc-cli
-  inputs:
-    version: 'v0.7.x'
+    - task: TfxInstaller@3
+      displayName: Install tfxc-cli
+      inputs:
+        version: 'v0.7.x'
 
-- task: PackageAzureDevOpsExtension@3
-  displayName: Package extension
-  inputs:
-    rootFolder: '$(System.DefaultWorkingDirectory)'
-    updateTasksVersion: false
+    - task: PackageAzureDevOpsExtension@3
+      displayName: Package extension
+      inputs:
+        rootFolder: '$(System.DefaultWorkingDirectory)'
+        updateTasksVersion: false
 
-- task: CopyFiles@2
-  displayName: Copy vsix to publishing folder
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: '**/*.vsix'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/Extension'
-    CleanTargetFolder: true
-    OverWrite: true
-    flattenFolders: true
-    preserveTimestamp: true
+    - task: CopyFiles@2
+      displayName: Copy vsix to publishing folder
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: '**/*.vsix'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/Extension'
+        CleanTargetFolder: true
+        OverWrite: true
+        flattenFolders: true
+        preserveTimestamp: true
 
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/Extension/'
-    artifact: 'Extension'
-    publishLocation: 'pipeline'
-
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)/Extension/'
+        artifact: 'Extension'
+        publishLocation: 'pipeline'
