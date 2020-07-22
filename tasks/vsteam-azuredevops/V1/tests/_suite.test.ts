@@ -28,7 +28,7 @@ describe('Sample task tests', function () {
     });
 
     it('should succeed with inline powershell input', function (done: Mocha.Done) {
-        this.timeout(3000);
+        this.timeout(10000);
 
         let tp = path.join(__dirname, 'successParams.js');
         let tr: ttm.MockTestRunner = new ttm.MockTestRunner(tp);
