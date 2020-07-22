@@ -34,6 +34,6 @@ steps:
   displayName: 'Publish Test Results'
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '$(System.DefaultWorkingDirectory)/**/*.results.xunit.xml'
+    testResultsFiles: '$(System.DefaultWorkingDirectory)/**/*.results.junit.xml'
     testRunTitle: '${{ parameters.os }} Unit Tests'
   condition: succeededOrFailed()
