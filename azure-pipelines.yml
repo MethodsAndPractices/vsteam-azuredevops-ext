@@ -22,7 +22,7 @@ stages:
           OS: 'Windows'
           vmImageName: 'windows-latest'
         Linux:
-          OS: 'Linux'
+          OS: 'macOS'
           vmImageName: 'macOS-latest'
       maxParallel: 2
     pool:
