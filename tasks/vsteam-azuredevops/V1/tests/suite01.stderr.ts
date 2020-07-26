@@ -25,7 +25,6 @@ let a: ma.TaskLibAnswers = <ma.TaskLibAnswers>{
     },
     "which": {
         'pwsh': 'path/to/pwsh',
-        'powershell': 'path/to/powershell'
     },
     "exec": {
         'path/to/pwsh -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command . \'My\\Temp\\Dir\\fileName.ps1\'': {
@@ -33,14 +32,6 @@ let a: ma.TaskLibAnswers = <ma.TaskLibAnswers>{
             "stderr": "Error"
         },
         'path/to/pwsh -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command . \'My/Temp/Dir/fileName.ps1\'': {
-            "code": 0,
-            "stderr": "Error"
-        },
-        'path/to/powershell -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command . \'My\\Temp\\Dir\\fileName.ps1\'': {
-            "code": 0,
-            "stderr": "Error"
-        },
-        'path/to/powershell -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command . \'My/Temp/Dir/fileName.ps1\'': {
             "code": 0,
             "stderr": "Error"
         }

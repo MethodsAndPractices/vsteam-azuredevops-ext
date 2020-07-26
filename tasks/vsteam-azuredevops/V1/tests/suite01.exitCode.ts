@@ -24,18 +24,9 @@ let a: ma.TaskLibAnswers = <ma.TaskLibAnswers>{
         "C:\\My\Default\\Working\\Dir": true,
     },
     "which": {
-        'pwsh': 'path/to/pwsh',
         'powershell': 'path/to/powershell'
     },
     "exec": {
-        'path/to/pwsh -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command . \'My\\Temp\\Dir\\fileName.ps1\'': {
-            "code": 1,
-            "stdout": "my inline script output"
-        },
-        'path/to/pwsh -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command . \'My/Temp/Dir/fileName.ps1\'': {
-            "code": 1,
-            "stdout": "my inline script output"
-        },
         'path/to/powershell -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command . \'My\\Temp\\Dir\\fileName.ps1\'': {
             "code": 1,
             "stdout": "my inline script output"
