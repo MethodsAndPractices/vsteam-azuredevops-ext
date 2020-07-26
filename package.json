@@ -33,8 +33,9 @@
     "build:clean": "npm run clean && npm run initdev && npm run build",
     "build:tasks": "npm run compile:tasks",
     "test": "npm run build && glob-exec --foreach \"tasks/**/tests/*.test.js\" -- \"mocha '{{file}}' --reporter mocha-junit-reporter --reporter-option mochaFile=./{{file.name}}.results.junit.xml\"",
+    "test:coverage:cmd-output": "npm run build && glob-exec --foreach \"tasks/**/tests/*.test.js\" -- \"nyc mocha '{{file}}'\"",
     "test:coverage:cobertura": "npm run build && glob-exec --foreach \"tasks/**/tests/*.test.js\" -- \"nyc --reporter=cobertura --reporter=text mocha '{{file}}' --reporter mocha-junit-reporter --reporter-option mochaFile=./{{file.name}}.results.junit.xml\"",
-    "test:coverage:html": "npm run build && nyc --reporter=html --reporter=text mocha 'tasks/vsteam-azuredevops/V1/tests/_suite.test.js'",
+    "test:coverage:html": "npm run build && nyc --reporter=html --reporter=text mocha 'tasks/vsteam-azuredevops/V1/tests/suite01.test.js'",
     "package": "npm run build:clean && npm run package:tasks",
     "clean": "git clean -fdX"
   },
