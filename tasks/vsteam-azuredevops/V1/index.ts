@@ -24,11 +24,13 @@ async function run() {
         contents.push(`$ErrorActionPreference='`+parameters.errorActionPreference.toUpperCase()+`'`)
 
         //file script or inline
-        if (parameters.scriptType.toUpperCase() == 'FILEPATH') {
+        if (parameters.scriptType.toUpperCase() == 'FILE') {
+            console.log("running via script file");
             contents.push(`. '${parameters.scriptPath.replace(/'/g, "''")}' ${parameters.scriptArguments}`.trim());
             console.log("Command length", contents[contents.length - 1]);
         }
         else {
+            console.log("running via inline file");
             contents.push(parameters.scriptInline);
         }
 
@@ -66,6 +68,7 @@ async function run() {
         // Listen for stderr.
         let stderrFailure = false;
         if (parameters.failOnStandardError) {
+            console.log("fail on standard error activated");
             powershell.on('stderr', (data) => {
                 stderrFailure = true;
             });

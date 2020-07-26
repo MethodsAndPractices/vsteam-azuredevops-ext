@@ -56,8 +56,7 @@ export class VsTeamTaskParameters {
             return credentials;
         }
         else {
-            let msg = "OnlyTokenAuthAllowed";
-            throw (msg);
+            throw new Error("OnlyTokenAuthAllowed");
         }
     }
 
