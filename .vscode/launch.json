@@ -24,7 +24,7 @@
                 "--timeout",
                 "999999",
                 "--colors",
-                "${file}"
+                "${fileDirname}/${fileBasenameNoExtension}.js"
             ],
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen"
