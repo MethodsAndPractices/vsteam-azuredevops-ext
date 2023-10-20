@@ -55,7 +55,7 @@
     "nyc": "^15.1.0",
     "source-map-support": "^0.5.19",
     "sync-request": "^6.1.0",
-    "tfx-cli": "^0.12.0",
+    "tfx-cli": "^0.16.0",
     "tslint": "^6.1.2",
     "typescript": "^3.9.7"
   }
